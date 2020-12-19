@@ -11,7 +11,13 @@ class NumberCollection extends OrderBy {
   }
 
   // TODO
+  ascending() {
+    this.collection.sort((a, b) => a - b);
+  }
 
+  descending() {
+    this.collection.sort((a, b) => b - a);
+  }
 }
 
 export default NumberCollection;

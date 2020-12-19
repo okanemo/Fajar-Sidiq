@@ -19,7 +19,7 @@ import LinkedList from './LinkedList';
 const givenNumberCollection = [5, 12, -3, -45, 0, 7, -12, 288];
 console.group("Numbers");
   const numberCollection = new NumberCollection(givenNumberCollection);
-  numberCollection.ascending();
+  numberCollection.ascending(); 
   console.group("ascending():");
     console.log(numberCollection.collection); // [-45, -12, -3, 0, 5, 7, 12, 288]
   console.groupEnd();
