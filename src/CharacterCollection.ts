@@ -11,7 +11,20 @@ class CharacterCollection extends OrderBy {
   }
 
   // TODO
+  ascending() {
+    this.collection = this.sortAlphabets(this.collection, false)
+  }
 
+  descending() {
+    this.collection = this.sortAlphabets(this.collection, true)
+  }
+
+  sortAlphabets(text: string, isReversed: boolean): string {
+    if (!isReversed) {
+      return text.split('').sort().join('');
+    }
+    return text.split('').sort().reverse().join('');
+  }
 }
 
 export default CharacterCollection;
