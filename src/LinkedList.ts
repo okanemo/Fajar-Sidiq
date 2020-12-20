@@ -48,8 +48,87 @@ class LinkedList extends OrderBy {
 
     tail.next = node;
   }
+  ascending() {
+    this.bubbbleSortAsc();
+    console.log("ok")
 
-  // TODO
+  }
+
+  descending(){
+    this.bubbbleSortDesc();
+  }
+
+  private bubbbleSortAsc() {
+    if (this.length > 1 && this.head) {
+      let wasChanged: boolean
+      do {
+        let current: Node | null = this.head;
+        let previous: Node | null = null;
+        let next: Node | null = this.head.next
+        wasChanged = false;
+
+        while (next !== null) {
+          if (current.data > next.data) {
+            wasChanged = true;
+
+            if (previous !== null) {
+              let sig = next.next;
+              previous.next = next;
+              next.next = current;
+              current.next = sig;
+            } else {
+              let sig = next.next;
+              this.head = next;
+              next.next = current;
+              current.next = sig
+            }
+            previous = next;
+            current = next;
+          } else {
+            previous = current;
+            current = next;
+            next = next.next;
+          }
+        }
+      } while (wasChanged)
+    }
+  }
+
+  private bubbbleSortDesc() {
+    if (this.length > 1 && this.head) {
+      let wasChanged: boolean
+      do {
+        let current: Node | null = this.head;
+        let previous: Node | null = null;
+        let next: Node | null = this.head.next
+        wasChanged = false;
+
+        while (next !== null) {
+          if (current.data < next.data) {
+            wasChanged = true;
+
+            if (previous !== null) {
+              let sig = next.next;
+              previous.next = next;
+              next.next = current;
+              current.next = sig;
+            } else {
+              let sig = next.next;
+              this.head = next;
+              next.next = current;
+              current.next = sig
+            }
+            previous = next;
+            current = next;
+          } else {
+            previous = current;
+            current = next;
+            next = next.next;
+          }
+        }
+      } while (wasChanged)
+    }
+  }
 
   print(): void {
     if (!this.head) {
